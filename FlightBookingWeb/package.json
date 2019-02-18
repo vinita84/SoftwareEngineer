@@ -1,0 +1,19 @@
+{
+  "name": "noderestapi",
+  "version": "1.0.0",
+  "description": "Node.js part of App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"this is a test command\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
