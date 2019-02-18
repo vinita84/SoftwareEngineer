@@ -31,10 +31,10 @@ public class PassengerController {
         return this.repository.findAll();
     }
 
-    @PutMapping("/addseating/{bid}/{seat}")
-    public ResponseEntity<Void> addSeating(@PathVariable int bid, @PathVariable String seat) {
+    @PutMapping("/addseating/{id}/{seat}")
+    public ResponseEntity<Void> addSeating(@PathVariable int id, @PathVariable String seat) {
         //Passenger result = this.repository.save();
-        Passenger p = this.repository.hold_seat(bid, seat);
+        Passenger p = this.repository.hold_seat(id, seat);
         if(p == null)
             return ResponseEntity.noContent().build();
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
@@ -56,9 +56,9 @@ public class PassengerController {
         //  .orElseThrow(PassengerNotFoundException::new);
     }
 
-    @PostMapping("/validateReservation/{seat}")
-    public ResponseEntity<Void> validateReservation(@PathVariable int bid, @PathVariable String ticketType) {
-        Passenger p = this.repository.validateReservationTicket(ticketType, bid);
+    @PostMapping("/validateReservation/{id}/{ticketType}")
+    public ResponseEntity<Void> validateReservation(@PathVariable int id, @PathVariable String ticketType) {
+        Passenger p = this.repository.validateReservationTicket(ticketType, id);
         if(p == null)
             return ResponseEntity.noContent().build();
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
